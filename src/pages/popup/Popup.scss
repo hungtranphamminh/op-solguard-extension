@@ -1,0 +1,141 @@
+@import '../../assets/styles/global.scss';
+.bgButton {
+  background: linear-gradient(0deg, rgba(113, 47, 255, 0.12), rgba(113, 47, 255, 0.12)),
+    linear-gradient(0deg, rgba(207, 184, 255, 0.32), rgba(207, 184, 255, 0.32)),
+    radial-gradient(100% 453.7% at 0% 50%, rgba(234, 111, 21, 0.5) 0%, rgba(247, 148, 30, 0) 50.72%);
+}
+.bgCreate {
+  background: radial-gradient(30.04% 100% at 55.18% 100%, #ac47fa 0%, #7d20ff 100%);
+  box-shadow: 0px 0px 0px 4px #f2eaff12;
+  box-shadow: 0px 1px 0px 0px #ffffff66 inset;
+}
+.bgInput {
+  background: linear-gradient(0deg, rgba(113, 47, 255, 0.12), rgba(113, 47, 255, 0.12)),
+    linear-gradient(0deg, rgba(207, 184, 255, 0.32), rgba(207, 184, 255, 0.32));
+}
+.bgWallet {
+  background: linear-gradient(0deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.06)),
+    linear-gradient(0deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.08));
+}
+.currentBalance {
+  border-radius: 16px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 100%);
+  box-shadow: 0px 4px 24px 0px rgba(5, 5, 33, 0.16);
+  backdrop-filter: blur(21px);
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.no-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+.swiper-pagination {
+  padding-top: 10px;
+}
+.swiper-pagination-bullet-active {
+  background-color: #b65bff !important;
+}
+.swiper-pagination-bullet {
+  border: 2px solid #b65bff;
+  background-color: transparent;
+}
+.bgGradient {
+  background: radial-gradient(30.04% 100% at 55.18% 100%, #ac47fa 0%, #7d20ff 100%);
+}
+.copyNotify {
+  border-radius: 16px;
+  background: linear-gradient(135deg, rgba(250, 245, 245, 0.2) 0%, rgba(246, 74, 74, 0) 100%);
+  box-shadow: 0px 4px 24px 0px rgba(5, 5, 33, 0.16);
+  backdrop-filter: blur(21px);
+}
+.borderGradient {
+  border-image-source: linear-gradient(89.65deg, #21698c 3.18%, #1e8f7a 97.81%);
+  border-image-slice: 1;
+  box-sizing: border-box;
+  border-radius: 8px;
+}
+
+input[type="number"]::-webkit-outer-spin-button, 
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    appearance: none;
+    margin: 0;
+}
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+.loader {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  display: block;
+  margin: 16px;
+  position: relative;
+  color: #fff;
+  left: -100px;
+  box-sizing: border-box;
+  animation: shadowRolling 2s linear infinite;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: transparent; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  border-radius: 50px;
+  background: rgba(255, 255, 255, 0.1); 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.2); 
+}
+
+@keyframes shadowRolling {
+  0% {
+    box-shadow: 0px 0 rgba(255, 255, 255, 0), 0px 0 rgba(255, 255, 255, 0),
+      0px 0 rgba(255, 255, 255, 0), 0px 0 rgba(255, 255, 255, 0);
+  }
+  12% {
+    box-shadow: 100px 0 white, 0px 0 rgba(255, 255, 255, 0),
+      0px 0 rgba(255, 255, 255, 0), 0px 0 rgba(255, 255, 255, 0);
+  }
+  25% {
+    box-shadow: 110px 0 white, 100px 0 white, 0px 0 rgba(255, 255, 255, 0),
+      0px 0 rgba(255, 255, 255, 0);
+  }
+  36% {
+    box-shadow: 120px 0 white, 110px 0 white, 100px 0 white,
+      0px 0 rgba(255, 255, 255, 0);
+  }
+  50% {
+    box-shadow: 130px 0 white, 120px 0 white, 110px 0 white, 100px 0 white;
+  }
+  62% {
+    box-shadow: 200px 0 rgba(255, 255, 255, 0), 130px 0 white, 120px 0 white,
+      110px 0 white;
+  }
+  75% {
+    box-shadow: 200px 0 rgba(255, 255, 255, 0), 200px 0 rgba(255, 255, 255, 0),
+      130px 0 white, 120px 0 white;
+  }
+  87% {
+    box-shadow: 200px 0 rgba(255, 255, 255, 0), 200px 0 rgba(255, 255, 255, 0),
+      200px 0 rgba(255, 255, 255, 0), 130px 0 white;
+  }
+  100% {
+    box-shadow: 200px 0 rgba(255, 255, 255, 0), 200px 0 rgba(255, 255, 255, 0),
+      200px 0 rgba(255, 255, 255, 0), 200px 0 rgba(255, 255, 255, 0);
+  }
+}

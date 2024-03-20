@@ -1,0 +1,167 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  font-family: 'Montserrat', sans-serif;
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  font-weight: 400;
+  font-style: normal;
+  src: url('../assets/fonts/montserrat/Montserrat-Regular.woff2');
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  font-weight: 500;
+  font-style: normal;
+  src: url('../assets/fonts/montserrat/Montserrat-Medium.woff2');
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  font-weight: 600;
+  font-style: normal;
+  src: url('../assets/fonts/montserrat/Montserrat-SemiBold.woff2');
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  font-weight: 700;
+  font-style: normal;
+  src: url('../assets/fonts/montserrat/Montserrat-Bold.woff2');
+}
+@font-face {
+  font-family: 'MonaSans';
+  font-weight: 400;
+  font-style: normal;
+  src: url('../assets/fonts/MonaSans/MonaSans-Regular.woff2');
+}
+@font-face {
+  font-family: 'MonaSans';
+  font-weight: 500;
+  font-style: normal;
+  src: url('../assets/fonts/MonaSans/MonaSans-Medium.woff2');
+}
+@font-face {
+  font-family: 'MonaSans';
+  font-weight: 600;
+  font-style: normal;
+  src: url('../assets/fonts/MonaSans/MonaSans-SemiBold.woff2');
+}
+@font-face {
+  font-family: 'MonaSans';
+  font-weight: 700;
+  font-style: normal;
+  src: url('../assets/fonts/MonaSans/MonaSans-Bold.woff2');
+}
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: Montserrat;
+  font-family: 'DM Mono', sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  /* IE and Edge */
+  -ms-overflow-style: none;
+  /* Firefox */
+  scrollbar-width: none;
+}
+
+.avatarContact {
+  background: linear-gradient(31.97deg, #ffa94b 21.19%, #ff5f30 81.5%);
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 5px;
+  background-color: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+  background-color: transparent;
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: #eb7106;
+  .bg_loading_signIn {
+    background-image: url(https://i.ibb.co/zHfCw6J/motion.gif);
+    object-fit: cover;
+  }
+}
+
+input.region [type='text'] {
+  color: white;
+}
+
+input.region:focus {
+  border: none;
+}
+
+.buy_bg {
+  background-image: url('../../assets/images/Buy/background.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  object-fit: cover;
+  // height: 100%;
+  // background-position: center center;
+}
+
+input.region::placeholder {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  color: #747184;
+}
+
+.continuous-1 {
+  width: 120px;
+  height: 20px;
+  background: linear-gradient(90deg, #1daa1f 33%, #457dfc 50%, #1daa1f 66%) #1daa1f;
+  background-size: 300% 100%;
+  animation: ct1 1s infinite linear;
+}
+
+@keyframes ct1 {
+  0% {
+    background-position: right;
+  }
+}
+
+
+.gradient-stepper{
+  // background: linear-gradient(90deg, #8531DA 0%, rgba(255, 65, 236, 0.00) 100%);
+  border-style: solid;
+  border-right-width: 0px;
+  border-left-width: 2px;
+  border-bottom-width: 0px;
+  border-image: 
+    linear-gradient(
+      to bottom, 
+      #8531DA, 
+      rgba(255, 65, 236, 0.00)
+    ) 1 100%;
+}

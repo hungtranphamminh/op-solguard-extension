@@ -1,0 +1,53 @@
+{
+  "manifest_version": 3,
+  "name": "Tram Connect Wallet",
+  "version": "1.2.5",
+  "description": "An Ethereum Wallet in your Browser",
+  "background": {
+    "service_worker": "src/pages/background/index.js",
+    "type": "module"
+  },
+  "action": {
+    "default_popup": "src/pages/index.html",
+    "default_icon": "logo.png"
+  },
+  "icons": {
+    "16": "logo.png",
+    "32": "logo.png",
+    "48": "logo.png",
+    "128": "logo.png"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "src/pages/content/index.js"
+      ],
+      "css": [
+        "content.css"
+      ]
+    }
+  ],
+  "externally_connectable": {
+    "matches": [
+      "http://*/*",
+      "https://*/*"
+    ]
+  },
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "src/assets/images/*"
+      ],
+      "matches": [
+        "*://*/*"
+      ]
+    }
+  ],
+  "permissions": [
+    "storage",
+    "tabs"
+  ]
+}
