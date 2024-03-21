@@ -104,7 +104,9 @@ const LockdownWindow = (interceptPort: chrome.runtime.Port, id: string) => {
           interceptPort,
           id
         )
-      else originalPostMessage.call(this, message, targetOrigin, transfer)
+      else {
+        originalPostMessage.call(this, message, targetOrigin, transfer)
+      }
     }
   }
   /* lockdown communication */

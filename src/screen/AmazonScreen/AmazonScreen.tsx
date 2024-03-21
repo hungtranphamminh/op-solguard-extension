@@ -86,7 +86,7 @@ export default function AmazonScreen() {
       // setTimeout(() => {
       //   simulateStep3()
       // }, 2000)
-    }, 3)
+    }, 6000)
   }
 
   const simulateStep3 = async () => {

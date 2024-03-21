@@ -16,8 +16,6 @@ export default function InjectedShield() {
     if (IsMaliciousWindow()) {
       window.alert('malicious window detected')
     } else {
-      window.alert('malicious window undetected')
-
       await InitInterceptor()
     }
   }
