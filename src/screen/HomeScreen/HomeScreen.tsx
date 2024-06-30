@@ -1,9 +1,10 @@
-import AmazonFooter from '../AmazonScreen/AmazonFooter'
+import AnalyzeFooter from '../AnalyzeScreen/AnalyzeFooter'
 import { useEffect, useState } from 'react'
 import { LocalStorage } from '@src/utils/localStorage'
 import { walletFormatAddress } from '@src/utils/lib'
 import ShieldOption from '@src/components/shieldOption/ShieldOption'
 import DetailCard from '@src/components/DetailCard/DetailCard'
+import { BASE_WEB_URL } from '@src/constants'
 export default function HomeScreen() {
   const [address, setAddress] = useState<any>(null)
   const [openDetail, setOpen] = useState<number>(0)
@@ -13,12 +14,12 @@ export default function HomeScreen() {
    * since port 3000 is reserved for extension
    */
   const openLoginTab = () => {
-    const loginTabURL = 'http://localhost:3001/'
+    const loginTabURL = BASE_WEB_URL
     chrome.tabs.create({ url: loginTabURL })
   }
 
   const logout = async () => {
-    await chrome.storage.local.clear().then((result) => retrieveAddress())
+    await chrome.storage.local.remove('evmAddress').then((result) => retrieveAddress())
   }
 
   const retrieveAddress = async () => {
@@ -67,7 +68,7 @@ export default function HomeScreen() {
       ) : (
         <></>
       )}
-      <AmazonFooter />
+      <AnalyzeFooter />
     </div>
   )
 }

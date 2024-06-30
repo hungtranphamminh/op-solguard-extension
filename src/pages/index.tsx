@@ -2,7 +2,7 @@ import { createRoot } from 'react-dom/client'
 import '@pages/popup/Popup.scss'
 import refreshOnUpdate from 'virtual:reload-on-update-in-view'
 import { HashRouter } from 'react-router-dom'
-import AmazonPayment from '@src/components/AmazonPopup/Amazon'
+import Analyzer from '@src/components/AnalyzePopup/Analyzer'
 //Font
 refreshOnUpdate('pages/popup')
 
@@ -19,7 +19,7 @@ function init() {
     <>
       <HashRouter>
         {/* <Popup /> */}
-        <AmazonPayment />
+        <Analyzer />
         {/* <Toast autoDelete={true} /> */}
       </HashRouter>
     </>

@@ -1,4 +1,4 @@
-import moreInfo from '@assets/images/Amazon/moreinfo.svg'
+import moreInfo from '@assets/images/Analyze/moreinfo.svg'
 import { LocalStorage } from '@src/utils/localStorage'
 import { useState, useEffect } from 'react'
 

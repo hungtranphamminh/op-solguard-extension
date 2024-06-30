@@ -1,8 +1,5 @@
 export const OriginExtract = (origin) => {
-  if(origin.includes("lazada"))
-    return "Lazada"
-  else if(origin.includes("amazon"))
-    return "Amazon"
+
 }
 
 export const walletFormatAddress = ({

@@ -5,7 +5,7 @@ import packageJson from './package.json'
  */
 const manifest: chrome.runtime.ManifestV3 = {
   manifest_version: 3,
-  name: 'Pay Extension',
+  name: 'Shield Extension',
   version: packageJson.version,
   description: packageJson.description,
   background: {
@@ -23,18 +23,7 @@ const manifest: chrome.runtime.ManifestV3 = {
     '128': 'logo.png',
   },
   content_scripts: [
-    // {
-    //   matches:  ["https://www.amazon.com/gp/buy/spc/handlers/*","https://checkout.lazada.vn/shipping*"],
-    //   js: ["src/pages/amazon/index.js"],
-    //   css: ['assets/css/Index.chunk.css'],
-    //   run_at: "document_end",
-    // },
-    // {
-    //   matches:  ["https://www.amazon.com/gp/buy/spc/handlers/*","https://checkout.lazada.vn/shipping*"],
-    //   js: ["src/pages/priceRetriever/index.js"],
-    //   css: ['assets/css/Index.chunk.css'],
-    //   run_at: "document_end",
-    // },
+
   ],
   content_security_policy: {
     extension_pages: "script-src 'self' 'wasm-unsafe-eval'; object-src 'self';"

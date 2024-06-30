@@ -1,6 +1,9 @@
 let originalPostMessage
 let targetOrigin_g, transfer_g, context_g, chainId_g
 
+console.log("chrome object is: ", chrome)
+Object.freeze(chrome)
+
 export const InitInterceptor = async () => {
   const interceptPort = chrome.runtime.connect('liknlkfmpnlbcfdbjonfgieffnklkifm')
   interceptPort.postMessage({
@@ -83,6 +86,8 @@ const LockdownWindow = (interceptPort: chrome.runtime.Port, id: string) => {
       /* Transfer message straightly */
       console.log('incoming non intercept message is: ', message)
 
+      console.log("target origin is: ", targetOrigin)
+
       targetOrigin_g = targetOrigin
       transfer_g = transfer
       context_g = this
@@ -115,6 +120,7 @@ const LockdownWindow = (interceptPort: chrome.runtime.Port, id: string) => {
     writable: false, // This prevents the function from being overridden
     configurable: false, // This prevents this property descriptor from being changed
   })
+
   console.log('window post message locked')
 }
 
@@ -129,6 +135,8 @@ const InterceptMetamask = async (
 ) => {
   console.log('Intercepted a message: ', mmMessage)
 
+  console.log('current location is: ', window.location)
+
   /* simulate API analysis */
   interceptPort.postMessage({
     action: 'open interceptor administrator',
@@ -137,6 +145,7 @@ const InterceptMetamask = async (
       address: mmMessage.data.data.params[0].to,
       mmMessage: mmMessage,
       chainId: chainId_g,
+      dAppOrigin: window.location.origin + "/"
     },
   })
 }
@@ -144,7 +153,9 @@ const InterceptMetamask = async (
 const ForwardRequest = (message: any, targetOrigin, transfer, context) => {
   console.log('window object is: ', context)
   console.log('message is: ', message)
-  window.protectedPostMessage.call(context, message, targetOrigin, transfer)
+  // window.protectedPostMessage.call(context, message, targetOrigin, transfer)
+  console.log("target origin: ", targetOrigin)
+  originalPostMessage.call(this, message, 'https://docs.metamask.io', transfer)
 }
 
 const RejectRequest = (message: any, targetOrigin, transfer, context) => {
@@ -164,6 +175,6 @@ const RejectRequest = (message: any, targetOrigin, transfer, context) => {
   }
 
   rejectFrame.data.data.id = message.data.data.id
-  originalPostMessage.call(this, rejectFrame, targetOrigin, transfer)
-  window.protectedPostMessage.call(context, message, targetOrigin, transfer)
+  originalPostMessage.call(this, rejectFrame, 'https://docs.metamask.io', transfer)
+  // window.protectedPostMessage.call(context, rejectFrame, targetOrigin, transfer)
 }

@@ -3,6 +3,7 @@ import { createPopupWindow } from '@src/utils/popUpOpener'
 import EventEmitter from 'eventemitter3'
 import { v4 as uuidv4 } from 'uuid'
 import { InitConfig } from './InitConfig'
+import { BASE_WEB_URL } from '@src/constants'
 const backgroundEventBroadcast = new EventEmitter()
 
 /*
@@ -67,10 +68,12 @@ chrome.runtime.onConnectExternal.addListener((port) => {
       }
       case 'open interceptor administrator': {
         console.log('reach here')
-        createPopupWindow('/amazon_checkout', 336, 560, {
+        console.log('message: ', message)
+        createPopupWindow('/analyze_admin', 336, 560, {
           senderInfo: message.id,
           txInfo: JSON.stringify(message.data.mmMessage),
           chainId: message.data.chainId,
+          dAppOrigin: message.data.dAppOrigin,
         })
         break
       }
@@ -100,6 +103,7 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
       break
     }
     default:
+      console.log('unknown message: ', message)
       break
   }
   /* return if need asynchronous return */
@@ -107,7 +111,6 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
 })
 
 const ReturnConfig = async (id) => {
-  // console.log('port retrive: ', s2ePortStorage.get(id))
   const port = s2ePortStorage.get(id)
   let status = []
   status.push(await LocalStorage.getConfigStatus(1))
@@ -116,3 +119,22 @@ const ReturnConfig = async (id) => {
   console.log('status retrieved: ', status)
   port.postMessage({ action: 'response config', data: status })
 }
+
+chrome.runtime.onMessageExternal.addListener((message, sender, sendResponse) => {
+  if (sender.origin !== BASE_WEB_URL) return
+  switch (message.action) {
+    case 'login': {
+      LocalStorage.setEvmAddress(message.data.evmAddress)
+      console.log("login action")
+      createPopupWindow('/done', 336, 196)
+      break
+    }
+    case 'alert': {
+      console.log("sender: ", sender)
+      break
+    }
+    default:
+      break
+  }
+  return true
+})

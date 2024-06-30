@@ -1,6 +1,4 @@
 import { useEffect } from 'react'
-// import { createRoot } from 'react-dom/client'
-import { SimulateAttacks } from './simulateAttack/SimulateAttacks'
 import { IsMaliciousWindow } from './detector/detector'
 import { InitInterceptor } from './interceptor/MetamaskInterceptor'
 
@@ -14,7 +12,10 @@ export default function InjectedShield() {
 
   const InterceptMessage = async () => {
     if (IsMaliciousWindow()) {
-      window.alert('malicious window detected')
+      window.alert('Malicious window detected at: ' + window.location.href)
+      chrome.runtime.sendMessage('liknlkfmpnlbcfdbjonfgieffnklkifm', {
+        action: 'alert',
+      })
     } else {
       await InitInterceptor()
     }

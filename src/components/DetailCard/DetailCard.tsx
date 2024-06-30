@@ -1,7 +1,8 @@
 import interceptor from '@assets/images/interceptor.png'
 import sync from '@assets/images/sync.png'
 import protectedRoad from '@assets/images/protected.png'
-import close from '@assets/images/Amazon/close.svg'
+import close from '@assets/images/Analyze/close.svg'
+import { BASE_WEB_URL } from '@src/constants'
 
 const DETAIL = [
   {
@@ -45,13 +46,13 @@ export default function DetailCard({ index, setOpen }) {
           </button>
         </div>
         {/* detail info */}
-        <div className="h-[256px] text-xs overflow-y-auto p-3 text-justify">
+        <a className="h-[256px] text-xs overflow-y-auto p-3 text-justify" href={BASE_WEB_URL}>
           {DETAIL[index - 1].description}
           {/* note */}
           <div className="mt-1 font-light">
             <span className="font-bold underline">Note:</span> {DETAIL[index - 1].note}
           </div>
-        </div>
+        </a>
       </div>
     </div>
   )

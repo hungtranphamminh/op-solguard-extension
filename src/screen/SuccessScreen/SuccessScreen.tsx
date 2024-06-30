@@ -1,11 +1,10 @@
-import LineLeft from '@assets/images/Amazon/lineLeft2.svg'
-import LineRight from '@assets/images/Amazon/lineRight2.svg'
-import AmazonFooter from '@src/components/AmazonFooter'
-import Done from '@assets/images/Amazon/done.png'
+import LineRight from '@assets/images/Analyze/lineRight2.svg'
+import LineLeft from '@assets/images/Analyze/lineLeft2.svg'
+import Done from '@assets/images/Analyze/done.png'
 
 export default function DoneScreen() {
   return (
-    <div className="flex flex-col w-[320px] bg-[url('../../assets/images/Amazon/bg.png')] bg-cover bg-no-repeat font-monasans">
+    <div className="flex flex-col w-[320px] bg-cover bg-[url('../../assets/images/aptosbng.png')] bg-no-repeat font-monasans">
       <div className="py-[32px] flex items-center">
         <img src={LineLeft} className="w-[35px]" alt="line left" />
         <div className="flex flex-col items-center grow justify-center">
@@ -19,7 +18,6 @@ export default function DoneScreen() {
         </div>
         <img src={LineRight} className="w-[35px]" alt="line right" />
       </div>
-      <AmazonFooter />
     </div>
   )
 }

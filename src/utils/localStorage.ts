@@ -24,8 +24,6 @@ export const LocalStorage = (function () {
 
   function _clearToken() {
     chrome.storage.local.remove([
-      'accessToken',
-      'refreshToken',
       'currentAccount',
       'user_id',
       'chainId',
@@ -43,7 +41,7 @@ export const LocalStorage = (function () {
     const result = await chrome.storage.local.get(['evmAddress'])
     /* todo: replace */
     // return result.evmAddress
-    return '0xbB44C4f44a561239c42f892333a541627ef2E8E6'
+    return result.evmAddress
   }
 
   async function _getConfigStatus(configIndex: Number) {

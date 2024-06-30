@@ -26,7 +26,7 @@ export default defineConfig({
       "@src": root,
       "@assets": assetsDir,
       "@pages": pagesDir
-    
+
     },
   },
   plugins: [
@@ -42,18 +42,18 @@ export default defineConfig({
   publicDir,
   optimizeDeps: { // 👈 optimizedeps
     esbuildOptions: {
-      target: "esnext", 
+      target: "esnext",
       // Node.js global to browser globalThis
       define: {
         global: 'globalThis'
       },
-      supported: { 
-        bigint: true 
+      supported: {
+        bigint: true
       },
     }
-  }, 
+  },
   build: {
-    target:["esnext"],
+    target: ["esnext"],
     outDir,
     /** Can slowDown build speed. */
     // sourcemap: isDev,
@@ -62,10 +62,8 @@ export default defineConfig({
     rollupOptions: {
       input: {
         types: resolve(root, 'types.ts'),
-        // amazon:resolve(pagesDir, "amazon", "index.ts"),
-        sui: resolve(pagesDir,"sui","index.ts"),
-        priceRetriever:resolve(pagesDir, "priceRetriever", "index.ts"),
-        popup: resolve(pagesDir, "index.html"),   
+        sui: resolve(pagesDir, "sui", "index.ts"),
+        popup: resolve(pagesDir, "index.html"),
         home: resolve(pagesDir, "home.html"),
         constants: resolve(root, 'constants.ts'),
         background: resolve(pagesDir, "background", "index.ts"),
@@ -89,7 +87,7 @@ export default defineConfig({
           return `assets/[ext]/${name}.chunk.[ext]`;
         },
       },
-      external:[
+      external: [
       ]
     },
   },
